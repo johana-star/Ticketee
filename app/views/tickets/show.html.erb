@@ -23,4 +23,12 @@
 			<% end %>
 		</div>
 	<% end %>
+	<div id='comments'>
+		<% if @ticket.comments.exists? %>
+			<%= render @ticket.comments.select(&:persisted?) %>
+		<% else %>
+			<p><small>There are no comments for this ticket.</p></small>
+		<% end %>
+	</div>
+	<%= render "comments/form" %>
 </div>

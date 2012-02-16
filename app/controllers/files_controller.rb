@@ -12,6 +12,7 @@ class FilesController < ApplicationController
     end
   end
   
+  
   def new
     @ticket = Ticket.new
     asset = @ticket.assets.build
