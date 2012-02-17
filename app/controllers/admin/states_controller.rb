@@ -2,9 +2,11 @@ class Admin::StatesController < ApplicationController
   def index
     @states = State.all
   end
+  
   def new
     @state = State.new
   end
+  
   def create
     @state = State.new(params[:state])
     if @state.save
@@ -15,4 +17,13 @@ class Admin::StatesController < ApplicationController
       render :action => "new"
     end
   end
+  
+  def make_default
+     @state = State.find(params[:id])
+     @state.default!
+     
+     flash[:notice] = "#{@state.name} is now the default state."
+     redirect_to admin_states_path
+   end
+   
 end

@@ -4,7 +4,7 @@ Feature: Creating states
 	I want to add them to the application
 	
 	Background:
-		Given there are the following users:
+	Given there are the following users:
 		| email					|password	| admin	|
 		| admin@ticketee.com	|password	| true	|
 	And I am signed in as them
